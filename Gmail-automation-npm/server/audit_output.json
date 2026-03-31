@@ -1,0 +1,115 @@
+{
+  "campaigns": [
+    {
+      "id": "7a77bf5f-01a4-4274-ac10-7c36523677cc",
+      "name": "test",
+      "createdAt": "2026-03-30T18:52:33.189Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "71c14eb3-803a-4c47-b1af-8f1d3e2ac648",
+      "name": "test",
+      "createdAt": "2026-03-30T19:01:58.481Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "124fadd3-aa81-4104-96a8-0a34adefb720",
+      "name": "Test",
+      "createdAt": "2026-03-30T19:06:41.028Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "26b3fea5-d54c-4212-a1b5-996ab127dd04",
+      "name": "test",
+      "createdAt": "2026-03-30T19:08:52.415Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "1a008119-37d1-4e6f-b9e2-af39f5b05603",
+      "name": "Test",
+      "createdAt": "2026-03-30T19:12:07.469Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "273ee6fd-8d80-4266-9eef-4b8d0f0b3f22",
+      "name": "Test",
+      "createdAt": "2026-03-30T19:17:26.025Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "b19792f1-fb55-4499-b214-d2c53a564374",
+      "name": "test",
+      "createdAt": "2026-03-30T19:20:58.362Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 0
+      }
+    },
+    {
+      "id": "1ccc75bd-0222-4664-bad4-a924b355e3ab",
+      "name": "test",
+      "createdAt": "2026-03-30T19:25:08.224Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 2
+      }
+    },
+    {
+      "id": "7442d925-2028-4036-a4a5-8fa9c1255465",
+      "name": "test",
+      "createdAt": "2026-03-30T19:36:02.212Z",
+      "status": "DRAFT",
+      "_count": {
+        "logs": 2
+      }
+    },
+    {
+      "id": "55dc1766-d06d-4252-b7d1-9956b4da56f8",
+      "name": "test",
+      "createdAt": "2026-03-30T19:42:57.898Z",
+      "status": "RUNNING",
+      "_count": {
+        "logs": 2
+      }
+    },
+    {
+      "id": "71548ad9-3ba1-4797-b707-0b1dbccc3082",
+      "name": "test",
+      "createdAt": "2026-03-30T20:10:51.610Z",
+      "status": "RUNNING",
+      "_count": {
+        "logs": 2
+      }
+    }
+  ],
+  "sentLogs": [
+    {
+      "id": "7c82e9af-991c-4bfc-a722-33fdc7689efb",
+      "sentAt": "2026-03-30T20:11:17.841Z",
+      "campaignId": "71548ad9-3ba1-4797-b707-0b1dbccc3082"
+    },
+    {
+      "id": "4edca96b-8007-4537-9b1a-5f4cb056124f",
+      "sentAt": "2026-03-30T20:12:25.722Z",
+      "campaignId": "71548ad9-3ba1-4797-b707-0b1dbccc3082"
+    }
+  ]
+}

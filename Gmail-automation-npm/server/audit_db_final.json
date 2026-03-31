@@ -1,0 +1,67 @@
+{
+  "campaignsCount": 4,
+  "logsCount": 8,
+  "campaignsWithLogsCount": 4,
+  "campaigns": [
+    {
+      "id": "1ccc75bd-0222-4664-bad4-a924b355e3ab",
+      "userId": "5b3c33ba-68e7-493b-b301-2272377c7535",
+      "name": "test",
+      "status": "DRAFT",
+      "minDelay": 30,
+      "maxDelay": 60,
+      "dailyLimit": null,
+      "accountId": null,
+      "createdAt": "2026-03-30T19:25:08.224Z",
+      "updatedAt": "2026-03-30T19:25:08.224Z",
+      "_count": {
+        "logs": 2
+      }
+    },
+    {
+      "id": "7442d925-2028-4036-a4a5-8fa9c1255465",
+      "userId": "5b3c33ba-68e7-493b-b301-2272377c7535",
+      "name": "test",
+      "status": "DRAFT",
+      "minDelay": 30,
+      "maxDelay": 60,
+      "dailyLimit": null,
+      "accountId": null,
+      "createdAt": "2026-03-30T19:36:02.212Z",
+      "updatedAt": "2026-03-30T19:36:02.212Z",
+      "_count": {
+        "logs": 2
+      }
+    },
+    {
+      "id": "55dc1766-d06d-4252-b7d1-9956b4da56f8",
+      "userId": "5b3c33ba-68e7-493b-b301-2272377c7535",
+      "name": "test",
+      "status": "RUNNING",
+      "minDelay": 30,
+      "maxDelay": 60,
+      "dailyLimit": null,
+      "accountId": null,
+      "createdAt": "2026-03-30T19:42:57.898Z",
+      "updatedAt": "2026-03-30T19:43:07.695Z",
+      "_count": {
+        "logs": 2
+      }
+    },
+    {
+      "id": "71548ad9-3ba1-4797-b707-0b1dbccc3082",
+      "userId": "5b3c33ba-68e7-493b-b301-2272377c7535",
+      "name": "test",
+      "status": "RUNNING",
+      "minDelay": 30,
+      "maxDelay": 60,
+      "dailyLimit": null,
+      "accountId": "0bb525fd-5b0e-4abd-9946-d25e77dd47d1",
+      "createdAt": "2026-03-30T20:10:51.610Z",
+      "updatedAt": "2026-03-30T20:10:59.937Z",
+      "_count": {
+        "logs": 2
+      }
+    }
+  ]
+}

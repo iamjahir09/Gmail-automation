@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-accent: #8b5cf6;
+  
+  /* Quantum Precision Animations */
+  --animate-precision-reveal: reveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-micro-float: micro-float 3s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-slow-float-1: slow-float-1 20s ease-in-out infinite;
+  --animate-slow-float-2: slow-float-2 25s linear infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-ping-slow: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-progress-indeterminate: progress-ind 2s ease-in-out infinite;
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(10px); filter: blur(5px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+  @keyframes micro-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+  @keyframes slow-float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(15%, 10%) scale(1.1); }
+    66% { transform: translate(-5%, 20%) scale(0.9); }
+  }
+  @keyframes slow-float-2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10%, -15%) rotate(180deg); }
+  }
+  @keyframes progress-ind {
+    0% { transform: translateX(-100%); width: 30%; }
+    50% { transform: translateX(50%); width: 50%; }
+    100% { transform: translateX(250%); width: 30%; }
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --border: rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --background: #08090a; /* Elite Deep Deep Charcoal */
+    --foreground: #fafafa;
+    --border: rgba(255, 255, 255, 0.08);
+    --glow: rgba(59, 130, 246, 0.15);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
+
+  /* Deep Atmospheric Glow (Subtle) */
+  .dark body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer components {
+  /* Precision Tech Card (Linear Style) */
+  .precision-card {
+    @apply bg-white dark:bg-[#0c0d0e] border border-black/5 dark:border-white/[0.06] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none rounded-2xl;
+  }
+
+  /* Dense List Items */
+  .email-item-interactive {
+    @apply relative overflow-hidden bg-transparent mb-1 p-4 transition-all duration-300 ease-out hover:bg-neutral-50 dark:hover:bg-[#121417] z-10 hover:z-20 border-b border-black/5 dark:border-white/[0.03] cursor-pointer;
+  }
+
+  .email-item-active {
+    @apply bg-neutral-100 dark:bg-[#16181b] ring-1 ring-black/5 dark:ring-white/[0.08] shadow-sm;
+  }
+
+  /* Precision Buttons */
+  .btn-primary {
+    @apply bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 px-5 py-2.5 rounded-xl font-bold text-sm tracking-tight transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-lg shadow-black/10;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white dark:bg-[#121417] border border-black/5 dark:border-white/10 text-neutral-600 dark:text-neutral-300 rounded-xl font-bold text-sm transition-all duration-200 hover:bg-neutral-50 dark:hover:bg-white/5;
+  }
+
+  /* Minimal Line Shimmer Loader */
+  .line-shimmer {
+    @apply relative overflow-hidden bg-neutral-100 dark:bg-neutral-900 h-10 w-full rounded-lg mb-2;
+  }
+  .line-shimmer::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 dark:via-white/[0.03] to-transparent animate-[prism_1.5s_linear_infinite];
+  }
+}
+
+.stagger-1 { animation-delay: 20ms; }
+.stagger-2 { animation-delay: 40ms; }
+.stagger-3 { animation-delay: 60ms; }
+.stagger-4 { animation-delay: 80ms; }
+.stagger-5 { animation-delay: 100ms; }
+.stagger-6 { animation-delay: 120ms; }
+.stagger-7 { animation-delay: 140ms; }
+.stagger-8 { animation-delay: 160ms; }
+.stagger-9 { animation-delay: 180ms; }
+.stagger-10 { animation-delay: 200ms; }
+

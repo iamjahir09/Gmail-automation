@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String
+  name      String?
+  role      Role       @default(USER)
+  campaigns Campaign[]
+  accounts  Account[]
+  createdAt DateTime   @default(now())
+}
+
+model Account {
+  id         String     @id @default(uuid())
+  userId     String
+  user       User       @relation(fields: [userId], references: [id])
+  name       String
+  host       String
+  port       Int
+  email      String
+  password   String
+  fromName   String?
+  campaigns  Campaign[]
+  logs       EmailLog[]
+  createdAt  DateTime   @default(now())
+
+  @@index([userId])
+}
+
+model Campaign {
+  id             String    @id @default(uuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id])
+  name           String
+  status         String    @default("DRAFT")
+  minDelay       Int       @default(30)
+  maxDelay       Int       @default(60)
+  dailyLimit     Int?
+  accountId      String?
+  account        Account?  @relation(fields: [accountId], references: [id])
+  templates      Template[]
+  contacts       Contact[]
+  logs           EmailLog[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+model Template {
+  id         String   @id @default(uuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id])
+  subject    String
+  body       String   @db.Text
+  createdAt  DateTime @default(now())
+}
+
+model Contact {
+  id         String     @id @default(uuid())
+  campaignId String
+  campaign   Campaign   @relation(fields: [campaignId], references: [id])
+  email      String
+  name       String?
+  variables  Json?
+  logs       EmailLog[]
+  createdAt  DateTime   @default(now())
+}
+
+model EmailLog {
+  id         String   @id @default(uuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id])
+  contactId  String
+  contact    Contact  @relation(fields: [contactId], references: [id])
+  accountId  String?
+  account    Account? @relation(fields: [accountId], references: [id])
+  status     String   @default("PENDING")
+  messageId  String?  @unique
+  sentAt     DateTime?
+  openedAt   DateTime?
+  error      String?
+  events     Event[]
+  createdAt  DateTime @default(now())
+
+  @@index([campaignId])
+  @@index([status])
+  @@index([sentAt])
+  @@index([createdAt])
+}
+
+model Event {
+  id        String   @id @default(uuid())
+  logId     String
+  log       EmailLog @relation(fields: [logId], references: [id])
+  type      String
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([logId])
+  @@index([type])
+  @@index([createdAt])
+}
