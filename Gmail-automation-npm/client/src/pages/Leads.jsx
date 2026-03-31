@@ -20,7 +20,7 @@ const Leads = () => {
   useEffect(() => {
     const fetchLeads = async () => {
       try {
-        const res = await axios.get('${import.meta.env.VITE_API_URL}/api/campaigns/contacts');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/campaigns/contacts`);
         setLeads(res.data);
       } catch (error) {
         console.error("Error fetching leads:", error);

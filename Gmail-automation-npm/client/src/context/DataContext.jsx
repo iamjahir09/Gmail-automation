@@ -21,8 +21,8 @@ export const DataProvider = ({ children }) => {
   const fetchAllData = useCallback(async (isInitial = false) => {
     try {
       const [statsRes, logsRes] = await Promise.all([
-        axios.get('${import.meta.env.VITE_API_URL}/api/analytics/overview'),
-        axios.get('${import.meta.env.VITE_API_URL}/api/inbox')
+        axios.get(`${import.meta.env.VITE_API_URL}/api/analytics/overview`),
+        axios.get(`${import.meta.env.VITE_API_URL}/api/inbox`)
       ]);
 
       if (statsRes.data) {
@@ -46,7 +46,7 @@ export const DataProvider = ({ children }) => {
   const fetchImap = useCallback(async () => {
     setIsImapSyncing(true);
     try {
-      const res = await axios.get('${import.meta.env.VITE_API_URL}/api/inbox/imap');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/inbox/imap`);
       if (res.data && !res.data.error) {
         const data = res.data.emails || res.data || [];
         setImapEmails(data);

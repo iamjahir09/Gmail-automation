@@ -27,7 +27,7 @@ const Templates = ({ setCurrentTab, setDraftTemplate }) => {
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
-        const res = await axios.get('${import.meta.env.VITE_API_URL}/api/campaigns/templates');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/campaigns/templates`);
         setTemplates(res.data);
       } catch (error) {
         console.error("Error fetching templates:", error);

@@ -24,7 +24,7 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('${import.meta.env.VITE_API_URL}/api/admin/users');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/users`);
       setUsers(res.data);
     } catch (err) {
       console.error("Error fetching users:", err);
@@ -36,7 +36,7 @@ const UserManagement = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('${import.meta.env.VITE_API_URL}/api/auth/register', formData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, formData);
       setMsg({ type: 'success', text: 'System user provisioned successfully.' });
       setShowForm(false);
       setFormData({ name: '', email: '', password: '', role: 'USER' });

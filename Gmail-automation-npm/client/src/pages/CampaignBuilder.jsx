@@ -64,7 +64,7 @@ const CampaignBuilder = ({ draftTemplate, setDraftTemplate }) => {
     setIsSubmitting(true);
     try {
       // 1. Create Campaign
-      const response = await axios.post('${import.meta.env.VITE_API_URL}/api/campaigns', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/campaigns`, {
         name: campaignName,
         minDelay,
         maxDelay,
