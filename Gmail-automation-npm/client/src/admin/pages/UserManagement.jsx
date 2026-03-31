@@ -24,7 +24,7 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/users');
+      const res = await axios.get('${import.meta.env.VITE_API_URL}/api/admin/users');
       setUsers(res.data);
     } catch (err) {
       console.error("Error fetching users:", err);
@@ -36,7 +36,7 @@ const UserManagement = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData);
+      await axios.post('${import.meta.env.VITE_API_URL}/api/auth/register', formData);
       setMsg({ type: 'success', text: 'System user provisioned successfully.' });
       setShowForm(false);
       setFormData({ name: '', email: '', password: '', role: 'USER' });
@@ -49,7 +49,7 @@ const UserManagement = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('IRREVERSIBLE ACTION: Are you sure you want to delete this user and all their campaigns?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/admin/users/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/admin/users/${id}`);
       fetchUsers();
     } catch (err) {
       console.error("Delete failed:", err);

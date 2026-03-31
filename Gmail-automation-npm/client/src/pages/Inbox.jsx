@@ -352,7 +352,7 @@ const Inbox = () => {
 
       setBodyLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/api/inbox/imap/body/${email.uid}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/inbox/imap/body/${email.uid}`);
         const data = res.data;
         // New API returns { html, text, subject, from }
         const updatedEmailProps = {

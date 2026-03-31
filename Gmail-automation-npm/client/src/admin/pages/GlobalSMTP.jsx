@@ -38,7 +38,7 @@ const GlobalSMTP = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/users');
+      const res = await axios.get('${import.meta.env.VITE_API_URL}/api/admin/users');
       setUsers(res.data);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -47,7 +47,7 @@ const GlobalSMTP = () => {
 
   const fetchAccounts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/accounts');
+      const res = await axios.get('${import.meta.env.VITE_API_URL}/api/accounts');
       setAccounts(res.data);
     } catch (error) {
       console.error("Error fetching accounts:", error);
@@ -60,7 +60,7 @@ const GlobalSMTP = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.post('http://localhost:5000/api/accounts', formData);
+      await axios.post('${import.meta.env.VITE_API_URL}/api/accounts', formData);
       setMsg({ type: 'success', text: 'SMTP relay added successfully!' });
       setFormData({ name: '', host: '', port: 587, email: '', password: '', fromName: '', assignedUserId: '' });
       setShowForm(false);
@@ -76,7 +76,7 @@ const GlobalSMTP = () => {
     if (!window.confirm("Are you sure you want to permanently disconnect this SMTP node?")) return;
     setDeletingId(id);
     try {
-      await axios.delete(`http://localhost:5000/api/accounts/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/accounts/${id}`);
       fetchAccounts();
     } catch (error) {
       console.error("Delete failed:", error);
